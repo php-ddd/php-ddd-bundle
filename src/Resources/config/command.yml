@@ -1,0 +1,23 @@
+services:
+    # Every kind of services (command, locator, ...) should have a default service name and may have multiple implementation
+    # The default service name will only consist on aliasing the right service.
+    # This way we can change the implementation without modifying our code
+
+    phpddd_command.bus:
+        alias: phpddd_command.sequential_bus
+
+    phpddd_command.handler_locator:
+        alias: phpddd_command.simple_handler_locator
+
+    phpddd_command.sequential_bus:
+        class: PhpDDD\Command\Bus\SequentialCommandBus
+        arguments: [@phpddd_command.handler_locator]
+
+    phpddd_command.simple_handler_locator:
+        class: PhpDDD\Command\Handler\Locator\CommandHandlerLocator
+
+    phpddd_command.command_bus_event_dispatcher:
+        class: PhpDDD\Command\Bus\CommandBusEventDispatcher
+        arguments:
+            - @phpddd_command.bus
+            - @phpddd_event.bus

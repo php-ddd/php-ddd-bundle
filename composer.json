@@ -1,0 +1,30 @@
+{
+    "name": "php-ddd/php-ddd-bundle",
+    "description": "Library to manage event",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {"PhpDDD\\PhpDDDBundle\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpDDD\\PhpDDDBundle\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Julien Dufresne"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3",
+        "symfony/console": "~2.3",
+        "php-ddd/command": "~1.0",
+        "php-ddd/domain-event": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*",
+        "fabpot/php-cs-fixer": "dev-master"
+    }
+}

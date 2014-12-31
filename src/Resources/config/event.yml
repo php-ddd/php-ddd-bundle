@@ -1,0 +1,17 @@
+services:
+    # Every kind of services (bus, locator, ...) should have a default service name and may have multiple implementation
+    # The default service name will only consist on aliasing the right service.
+    # This way we can change the implementation without modifying our code
+
+    phpddd_event.bus:
+        alias: phpddd_event.simple_bus
+
+    phpddd_event.listener_locator:
+        alias: phpddd_event.simple_listener_locator
+
+    phpddd_event.simple_bus:
+        class: PhpDDD\Domain\Event\Bus\EventBus
+        arguments: [@phpddd_event.simple_listener_locator]
+
+    phpddd_event.simple_listener_locator:
+        class: PhpDDD\Domain\Event\Listener\Locator\EventListenerLocator
