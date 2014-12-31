@@ -1,4 +1,4 @@
-PhpDDDBundle
+PhpDDDBundle [![Build Status](https://travis-ci.org/php-ddd/php-ddd-bundle.svg?branch=master)](https://travis-ci.org/php-ddd/php-ddd-bundle) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/php-ddd/php-ddd-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/php-ddd/php-ddd-bundle/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/php-ddd/php-ddd-bundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/php-ddd/php-ddd-bundle/?branch=master) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/83aaba9c-f559-4491-a53a-676396d510c1/mini.png)](https://insight.sensiolabs.com/projects/83aaba9c-f559-4491-a53a-676396d510c1)
 ============
 
 PhpDDDBundle provides some tools to integrate php-ddd/domain-event and php-ddd/command inside your Symfony application.
@@ -29,7 +29,7 @@ services:
             - { name: php_ddd.command_handler, command: My/Command/Foo }
 ```
 
-The CommandHandler will be automatically registered in the `phpddd_command.handler_locator` service which correspond to a CommandHandlerLocator.  
+The CommandHandler will be automatically registered in the `phpddd_command.handler_locator` service which correspond to a CommandHandlerLocator.
 This CommandHandlerLocator is then passed to the `phpddd_command.bus` service which correspond to a SequentialCommandBus by default.
 
 
@@ -46,6 +46,6 @@ services:
             - { name: php_ddd.event_listener, event: Other/Event/Bar }
 ```
 
-The EventListener will be automatically registered in the `phpddd_event.listener_locator` service which correspond to an EventListenerLocator.  
+The EventListener will be automatically registered in the `phpddd_event.listener_locator` service which correspond to an EventListenerLocator.
 This EventListener is then passed to the `phpddd_event.bus` service which correspond to an EventBus by default.
 
